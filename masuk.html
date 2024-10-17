@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk Webverse Studio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="loginPageContainer">
+      <div class="left">
+        <h1>Webverse Studio</h1>
+        <img alt="Webverse Studio Logo" height="200" src="img/logo.jpg" width="200" />
+        <p>Tempat dimana setiap gambar bercerita!</p>
+      </div>
+      <div class="right">
+        <div class="login-form">
+          <h2 style="text-align: center">Masuk</h2>
+          <p style="text-align: center">Masuk untuk melakukan pemesanan di Web Studio.</p>
+          <label for="username"> Nama Pengguna </label>
+          <input id="username" name="username" type="text" />
+          <label for="password"> Password </label>
+          <input id="password" name="password" type="password" />
+          <div class="checkbox-label">
+            <input id="terms" name="terms" type="checkbox" />
+            <label for="terms"> Saya menerima syarat &amp; ketentuan yang berlaku </label>
+          </div>
+
+          <button type="submit" id="loginButton">Masuk</button>
+          <div class="register">
+            <p>Belum mempunyai akun? <a href="daftar.html"> Daftar </a></p>
+            <p>Atau</p>
+            <div class="google-login">
+              <img alt="Google Logo" height="20" src="img/google.png" width="20" />
+              <span> Masuk dengan Google </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pop-up -->
+    <div class="popup-overlay" id="loginPopupOverlay"></div>
+    <div class="popup" id="loginPopupContainer">
+      <img src="img/masukBerhasil.png" alt="Gambar Berhasil Masuk" />
+      <button id="closePopup">Tutup</button>
+    </div>
+
+    <script>
+      // Ketika tombol Masuk diklik
+      document.getElementById("loginButton").addEventListener("click", function (event) {
+        event.preventDefault(); // Mencegah pengiriman form
+
+        // Tampilkan pop-up berhasil masuk
+        document.getElementById("loginPopupOverlay").style.display = "block";
+        document.getElementById("loginPopupContainer").style.display = "block";
+
+        // Alihkan ke halaman home setelah beberapa detik
+        setTimeout(function () {
+          window.location.href = "/homePage/index.html"; // Ubah "home.html" dengan halaman tujuan
+        }, 3000); // 3000ms = 3 detik
+      });
+
+      // Tombol tutup pop-up (jika pengguna ingin menutupnya sebelum pengalihan otomatis)
+      document.getElementById("closePopup").addEventListener("click", function () {
+        window.location.href = "/homePage/index.html"; // Ubah "home.html" dengan halaman tujuan
+      });
+    </script>
+  </body>
+</html>

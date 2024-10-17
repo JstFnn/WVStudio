@@ -1,0 +1,45 @@
+.header {
+  position: relative;
+  background: url("header0.png") center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Pseudo-element for linear gradient */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(60, 35, 74, 1) 32%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 1; /* Gradient will be above the background but below the text */
+}
+
+/* Konten di dalam header harus memiliki z-index lebih tinggi */
+.header-bar,
+.navbar,
+.nav-menu,
+.button {
+  position: relative;
+  z-index: 2; /* Konten ini di atas gradient */
+}
+
+.header {
+  background: linear-gradient(90deg, rgba(60, 35, 74, 1) 31.999999284744263%, rgba(0, 0, 0, 0) 100%);
+  border-style: solid;
+  border-color: #7c466a;
+  border-width: 1px;
+  padding: 0px 100px 100px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1440px;
+  position: relative;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
